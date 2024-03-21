@@ -10,6 +10,12 @@ import warnings
 import os
 # import ast
 # from io import BytesIO
+import openai
+
+from functions import generate_data
+from functions import create_bar_graph
+
+
 
 # hide future warnings (caused by st_aggrid)
 warnings.simplefilter(action='ignore', category=FutureWarning)
@@ -60,11 +66,17 @@ def generate_response(query):
 # Create a button to submit the query and trigger the conversation flow
 if send_button:
     # Generate a response based on the user's query
-    response = generate_response(user_query)
-    # Display the response
-    response_placeholder.text_area('ChatGPT:', value=response, height=200)
 
-    user_query = st.text_input('You:', '')
+    data = generate_data(user_query)
+    st.write(data)
+
+    #response = generate_response(user_query)
+    # Display the response
+    create_bar_graph(data)
+
+    #response_placeholder.text_area('ChatGPT:', value=response, height=200)
+
+    #user_query = st.text_input('You:', '')
 
 
 # Display the user's query
