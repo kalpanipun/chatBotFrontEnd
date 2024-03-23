@@ -7,7 +7,7 @@ import os
 
 #os.environ["OPENAI_API_KEY"] = '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'
 
-os.environ["OPENAI_API_KEY"] = 'IdmjrNpfm100'
+os.environ["OPENAI_API_KEY"] = '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'
 
 client = OpenAI()
 OpenAI.api_key = os.getenv('OPENAI_API_KEY')
