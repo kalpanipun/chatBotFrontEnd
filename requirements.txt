@@ -1,0 +1,13 @@
+streamlit
+streamlit_dynamic_filters
+streamlit-aggrid
+pandas
+openpyxl
+Pillow==9.3.0
+requests
+plotly
+kaleido
+openai
+pyarrow==10.0.1
+langchain
+langchain-community
