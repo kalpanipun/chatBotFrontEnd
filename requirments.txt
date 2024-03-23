@@ -9,3 +9,5 @@ plotly
 kaleido
 openai
 pyarrow==10.0.1
+langchain
+langchain-community

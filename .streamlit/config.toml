@@ -1,6 +1,8 @@
 [theme]
 base="light"
 primaryColor="FF8C00"
+secondaryBackgroundColor = "00ff52"
 
 [deprecation]
 showPyplotGlobalUse = false
+
