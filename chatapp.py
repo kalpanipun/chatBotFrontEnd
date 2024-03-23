@@ -6,22 +6,23 @@ from langchain.chat_models import ChatOpenAI
 from langchain.chains import RetrievalQA
 
 # Reading Methods
+
 from functions import generate_data
 from read_data import load_index
 from read_data import load_pdf
 
 # Data path
 file_path = 'financial_statements_csv.csv'
-
 stock_path = 'stock_mkt_data4.csv'
+
 
 # hide future warnings (caused by st_aggrid)
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
 # set page layout and define basic variables
-st.set_page_config(layout="wide", page_icon='⚡', page_title="Instant Insight")
+st.set_page_config(layout="wide", page_icon='⚡', page_title="Invest")
 path = os.path.dirname(__file__)
-# today = date.today()
+
 
 # create sidebar filters
 ############################ All the markdowns #############################################
@@ -134,6 +135,7 @@ template = (f"{user_query},If there are any graphs to be plot give python code f
 
 
 # Create a placeholder for the response
+
 response_placeholder = st.empty()
 send_button = st.button('Send')
 
@@ -141,13 +143,7 @@ send_button = st.button('Send')
 if send_button:
     # Generate a response based on the user's query
 
-
     index = load_index(stock_path)
-
-    # chain = RetrievalQA.from_chain_type(llm=ChatOpenAI(), chain_type="stuff",
-    #                                     retriever=index.vectorstore.as_retriever(), input_key="question")
-
-    # response = chain({"question": template})
 
     result = index.query(template, llm=ChatOpenAI())
 
